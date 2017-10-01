@@ -1,4 +1,8 @@
-## Instalation
+## Description
+
+Small web app developed with Javascript that takes two hands of cards and evaluates which one wins using poker rules
+
+## Installation
 
 Just open the file index.html in your prefered browser
 
