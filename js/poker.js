@@ -1,7 +1,9 @@
+'use strict';
 function Poker(){
 	var api = new API();
 	var rankings = ['0','High Card', 'One Pair', 'Two Pairs', 'Three of a kind', 'Straight', 'Flush', 'Full House', 'Four of a kind', 'Straight Flush', 'Royal Flush'];
 	
+	//Create a deck of cards
 	this.createDeck = function(){
 		var deferred = jQuery.Deferred();
 		var result = deferred.promise();
@@ -12,6 +14,8 @@ function Poker(){
 	    });
 		return result;
 	}
+
+	//Create a hand 
 	this.createHand = function(deck,amount){
 		var deferred = jQuery.Deferred();
 		var result = deferred.promise();
@@ -23,7 +27,7 @@ function Poker(){
 		var values = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 		api.deal(deck,amount).done(function(data){
 			for (var i=0; i<data.length; i++) {
-				value = values.indexOf(data[i]['number']);
+				var value = values.indexOf(data[i]['number']);
 				data[i]['value'] = value;
 				if(typeof(numbers[value]) === 'undefined'){
 					numbers[value] = [];
@@ -49,6 +53,7 @@ function Poker(){
 		return result;
 	}
 
+	//Handle errors
 	function errorMessage(error){
 		switch(error){
 			case 500:
@@ -65,6 +70,7 @@ function Poker(){
 		}
 	}
 
+	//Calculate the ranking of the hand
 	function calculateRanking(hand){
 		if(isRoyalFlush(hand)){
 			return 10;
@@ -172,6 +178,7 @@ function Poker(){
 		return false;
 	}
 
+	//Check if the values are consecutive
 	function consecutiveValues(values){
 		for (var i=0; i<values.length-1; i++) {
 			if(values[i] != values[i+1]-1){
@@ -181,6 +188,7 @@ function Poker(){
 		return true;
 	}
 
+	//Compare rankings and find the winner
 	this.findWinner = function (hand1,hand2){
 		var ranking1 = hand1['ranking'];
 		var ranking2 = hand2['ranking'];

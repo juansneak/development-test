@@ -1,3 +1,4 @@
+'use strict';
 function API(){
 	var apiUrl = "https://services.comparaonline.com/dealer";
 	this.deck = function(){
