@@ -6,6 +6,8 @@ Small web app developed with Javascript that takes two hands of cards and evalua
 
 Just open the file index.html in your prefered browser
 
+Note: If you get any cross-domain error you might need to install a plugin on your browser to enable cross-origin resource sharing
+
 ## Poker rules
 
 Each hand consists in a set of five​ cards.
