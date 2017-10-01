@@ -1,0 +1,15 @@
+button{
+	margin: 10px;
+}
+.select_hand1{
+	display: none;
+}
+.select_hand2{
+	display: none;
+}
+.play_button{
+	display: none;
+}
+.hand_message{
+	color: red
+}
